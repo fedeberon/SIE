@@ -15,4 +15,10 @@ public class HomeController {
     public String inicio(){
         return "index";
     }
+
+
+    @RequestMapping(value = {"login"})
+    public String login(){
+        return "login";
+    }
 }
