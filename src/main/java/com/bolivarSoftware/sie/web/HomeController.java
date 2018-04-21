@@ -19,6 +19,6 @@ public class HomeController {
 
     @RequestMapping(value = {"login"})
     public String login(){
-        return "login";
+        return "loginPage";
     }
 }

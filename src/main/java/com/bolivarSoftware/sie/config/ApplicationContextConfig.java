@@ -55,7 +55,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter {
     @Bean
     public TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/**/tiles3-servlet.xml"});
+        tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/tiles/tiles-defs.xml"});
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
     }
@@ -66,8 +66,6 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         TilesViewResolver viewResolver = new TilesViewResolver();
-        viewResolver.setOrder(0);
-        registry.order(0);
         registry.viewResolver(viewResolver);
     }
 
