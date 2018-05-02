@@ -26,7 +26,7 @@ public class HomeController {
 
     @RequestMapping(value = {"login"}, method = RequestMethod.GET)
     public String login(){
-        return "login";
+        return "loginPage";
     }
 
     @RequestMapping(value= {"logout"}, method = RequestMethod.GET)

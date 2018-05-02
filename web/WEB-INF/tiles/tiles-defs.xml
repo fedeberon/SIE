@@ -12,8 +12,8 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 
-    <definition name="login" extends="baseLayout">
-        <put-attribute name="title" value="Nuevo Usuario"/>
+    <definition name="loginPage" extends="baseLayout">
+        <put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
 
