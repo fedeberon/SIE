@@ -17,7 +17,7 @@
         <log4j.version>2.5</log4j.version>
         <javassist.version>3.4.GA</javassist.version>
         <jackson.version>2.7.5</jackson.version>
-        <apachetiles.version>3.0.5</apachetiles.version>
+        <apachetiles.version>3.0.7</apachetiles.version>
     </properties>
 
     <dependencies>

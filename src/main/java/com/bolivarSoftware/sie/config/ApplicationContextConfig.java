@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.bolivarSoftware.sie")
 @PropertySource("classpath:application.properties")
-@PropertySource(value = "file:${apolo.com.bolivarSoftware.sie.config.prop.folder}/application.properties", ignoreResourceNotFound = true)
+@PropertySource(value = "file:${sie.com.bolivarSoftware.sie.config.prop.folder}/application.properties", ignoreResourceNotFound = true)
 public class ApplicationContextConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -55,7 +55,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter {
     @Bean
     public TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/**/tiles3-servlet.xml"});
+        tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/**/tiles-defs.xml"});
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
     }
