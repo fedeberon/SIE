@@ -34,14 +34,14 @@ public class EncuestaController {
 
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String CREDENTIALS_FOLDER = "credentials"; // Directory to store user credentials.
+    private static final String CREDENTIALS_FOLDER = "/credentials"; // Directory to store user credentials.
 
     /**
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved credentials/ folder.
      */
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_METADATA_READONLY);
-    private static final String CLIENT_SECRET_DIR = "client_secret.json";
+    private static final String CLIENT_SECRET_DIR = "/client_secret.json";
 
     /**
      * Creates an authorized Credential object.
@@ -88,7 +88,7 @@ public class EncuestaController {
 
         model.addAttribute("files", files);
 
-        return "encuesta/list";
+        return "encuestas/list";
     }
 
 }

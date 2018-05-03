@@ -6,13 +6,13 @@
 
 	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
 		<put-attribute name="title" value="Basic"/>
-		<put-attribute name="header" value=""/>
-		<put-attribute name="menu" value=""/>
-		<put-attribute name="body" value=""/>
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 
-    <definition name="loginPage" extends="baseLayout">
+    <definition name="loginPage" template="/WEB-INF/tiles/login.jsp">
         <put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
@@ -23,6 +23,11 @@
         <put-attribute name="menu" value=""/>
         <put-attribute name="body" value="/WEB-INF/jsp/index.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+    </definition>
+
+    <definition name="encuestas/list" extends="baseLayout">
+        <put-attribute name="title" value="Documentos Encontrados"/>
+        <put-attribute name="body" value="/WEB-INF/tiles/encuesta/list.jsp"/>
     </definition>
 
 </tiles-definitions>
