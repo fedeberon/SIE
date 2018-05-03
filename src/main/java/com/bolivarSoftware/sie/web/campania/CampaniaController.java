@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CampaniaController {
 
     @RequestMapping("create")
-    public String nuevaCampania() {
+    public String create() {
         return "campania/create";
     }
 
@@ -23,7 +23,7 @@ public class CampaniaController {
 
     @RequestMapping("show")
     public String show() {
-        return "campania/show";
+        return "campania/show";  // Se llama al definition de tiles-defs-xml
     }
 
 

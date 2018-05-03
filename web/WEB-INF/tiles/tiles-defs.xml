@@ -6,23 +6,30 @@
 
 	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
 		<put-attribute name="title" value="Basic"/>
-		<put-attribute name="header" value=""/>
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
 		<put-attribute name="menu" value=""/>
 		<put-attribute name="body" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 
-    <definition name="loginPage" extends="baseLayout">
+    <definition name="login" template="/WEB-INF/tiles/login.jsp"/>
+
+    <definition name="loginPage" extends="login">
         <put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
 
     <definition name="inicio" extends="baseLayout">
         <put-attribute name="title" value="Inicio"/>
-        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+
         <put-attribute name="menu" value=""/>
         <put-attribute name="body" value="/WEB-INF/jsp/index.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+    </definition>
+
+    <definition name="campania/show" extends="baseLayout">
+        <put-attribute name="title" value="Campanas"/>
+        <put-attribute name="body" value="/WEB-INF/tiles/campania/show.jsp"/>
     </definition>
 
 </tiles-definitions>
