@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Nueva Campaña</title>
+    <title>Nueva Campania</title>
 </head>
 <body>
 
