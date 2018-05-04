@@ -1,9 +1,9 @@
 package com.bolivarSoftware.sie.persist.interfaces;
 
-import com.bolivarSoftware.sie.domain.Encuesta;
+import com.bolivarSoftware.sie.domain.Campania;
 
-public interface IEncuestaRepository {
+public interface ICampaniaRepository {
 
-    Encuesta save(Encuesta encuesta);
+    Campania save(Campania campania);
 
 }

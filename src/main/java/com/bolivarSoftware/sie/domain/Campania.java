@@ -1,11 +1,10 @@
 package com.bolivarSoftware.sie.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-/**
- * Created by Damian Gallego on 26/4/2018.
- */
 @Entity
 @Table(name = "CAMPANIAS")
 public class Campania {
@@ -15,11 +14,17 @@ public class Campania {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "CAM_NOMBRE")
+    private String nombre;
+
     @Column(name = "CAM_FECHA_INICIO")
     private Date fechaDeInicio;
 
     @Column(name = "CAM_FECHA_FIN")
     private Date fechaDeFin;
+
+    @OneToMany(mappedBy = "campania", fetch = FetchType.EAGER)
+    private List<Encuesta> encuestas = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -27,6 +32,14 @@ public class Campania {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Date getFechaDeInicio() {
@@ -45,5 +58,11 @@ public class Campania {
         this.fechaDeFin = fechaDeFin;
     }
 
+    public List<Encuesta> getEncuestas() {
+        return encuestas;
+    }
 
+    public void setEncuestas(List<Encuesta> encuestas) {
+        this.encuestas = encuestas;
+    }
 }

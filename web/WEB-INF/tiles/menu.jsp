@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
@@ -27,7 +28,7 @@
                 <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.jsp">Dashboard</a></li>
+                            <li><a href="<c:url value="campania/show" />">Campa&ntilde;as</a></li>
                             <li><a href="index2.html">Dashboard2</a></li>
                             <li><a href="index3.html">Dashboard3</a></li>
                         </ul>
@@ -96,7 +97,7 @@
                             <li><a href="page_404.html">404 Error</a></li>
                             <li><a href="page_500.html">500 Error</a></li>
                             <li><a href="plain_page.html">Plain Page</a></li>
-                            <li><a href="login.jsp">Login Page</a></li>
+                            <li><a href="baseLogin.jsp">Login Page</a></li>
                             <li><a href="pricing_tables.html">Pricing Tables</a></li>
                         </ul>
                     </li>
@@ -166,7 +167,7 @@
                             </a>
                         </li>
                         <li><a href="javascript:;">Help</a></li>
-                        <li><a href="login.jsp"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <li><a href="baseLogin.jsp"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
 

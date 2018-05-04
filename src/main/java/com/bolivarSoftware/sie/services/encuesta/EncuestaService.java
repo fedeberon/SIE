@@ -1,5 +1,6 @@
-package com.bolivarSoftware.sie.services;
+package com.bolivarSoftware.sie.services.encuesta;
 
+import com.bolivarSoftware.sie.domain.Campania;
 import com.bolivarSoftware.sie.services.interfaces.IEncuestaService;
 import com.bolivarSoftware.sie.web.encuesta.EncuestaController;
 import com.google.api.client.auth.oauth2.Credential;
@@ -25,11 +26,9 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Damian Gallego on 3/5/2018.
- */
+
 @Service
-public class EncuestaServiceImpl implements IEncuestaService {
+public class EncuestaService implements IEncuestaService {
 
 
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";

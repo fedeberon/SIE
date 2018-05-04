@@ -1,7 +1,9 @@
 package com.bolivarSoftware.sie.services.interfaces;
 
-/**
- * Created by Damian Gallego on 4/5/2018.
- */
+
+import com.bolivarSoftware.sie.domain.Campania;
+
 public interface ICampaniaService {
+
+    Campania save(Campania campania);
 }
