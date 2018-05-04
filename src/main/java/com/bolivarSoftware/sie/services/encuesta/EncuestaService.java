@@ -1,5 +1,7 @@
-package com.bolivarSoftware.sie.web.encuesta;
+package com.bolivarSoftware.sie.services;
 
+import com.bolivarSoftware.sie.services.interfaces.IEncuestaService;
+import com.bolivarSoftware.sie.web.encuesta.EncuestaController;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -14,9 +16,7 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,11 +26,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Fede Beron on 02/05/2018.
+ * Created by Damian Gallego on 3/5/2018.
  */
-@Controller
-@RequestMapping("encuestas")
-public class EncuestaController {
+@Service
+public class EncuestaServiceImpl implements IEncuestaService {
+
 
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -42,6 +42,7 @@ public class EncuestaController {
      */
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_METADATA_READONLY);
     private static final String CLIENT_SECRET_DIR = "/client_secret.json";
+
 
     /**
      * Creates an authorized Credential object.
@@ -63,8 +64,8 @@ public class EncuestaController {
         return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
     }
 
-    @RequestMapping("list")
-    public String main(Model model) throws IOException, GeneralSecurityException {
+    @Override
+    public List<File> getEncuestasEnGoogleDrive() throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
@@ -74,9 +75,11 @@ public class EncuestaController {
         // Print the names and IDs for up to 10 files.
         FileList result = service.files().list()
                 .setPageSize(10)
-                .setFields("nextPageToken, files(id, name)")
+                .setFields("nextPageToken, files(id,name,kind,originalFilename)")
                 .execute();
         List<File> files = result.getFiles();
+
+
         if (files == null || files.isEmpty()) {
             System.out.println("No files found.");
         } else {
@@ -86,9 +89,7 @@ public class EncuestaController {
             }
         }
 
-        model.addAttribute("files", files);
-
-        return "encuestas/list";
+        return result.getFiles();
     }
 
 }
